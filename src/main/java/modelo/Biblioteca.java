@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-public class Biblioteca {
+public class Biblioteca implements Serializable {
 
     private ArrayList<Libro> libros;
     private ArrayList<Usuario> usuarios;

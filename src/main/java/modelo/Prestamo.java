@@ -3,7 +3,7 @@ package modelo;
 import java.time.LocalDate;
 import java.io.Serializable;
 
-public class Prestamo {
+public class Prestamo implements Serializable {
 
     private Usuario usuario;
     private Libro libro;

@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Libro {
+public class Libro implements Serializable {
 
     private String codigo;
     private String titulo;
