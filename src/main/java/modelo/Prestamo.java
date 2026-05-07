@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
 public class Prestamo {
 

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.io.Serializable;
+
 public class Libro {
 
     private String codigo;
