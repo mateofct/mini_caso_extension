@@ -1,39 +1,42 @@
-Repositorio educativo para estudiar el paso desde una narrativa de problema hacia el diseño UML y la implementación Java de un sistema básico de biblioteca organizado bajo MVC.
+> [!IMPORTANT]
+> NOTA: Agregado sistema de persistencia de datos básico y roles por usuario (Estudiante/Profesor).
 
-# Sistema Biblioteca POO MVC
+# Respuesta a preguntas de sección 15:
+1. ¿Qué ventaja tiene organizar el proyecto en paquetes?<br>
+R// Permite ordenar el programa según responsabilidades, usando la arquitectura MVC.
 
-Proyecto educativo desarrollado en Java para ilustrar el análisis, diseño e implementación de un sistema básico de gestión de biblioteca utilizando Programación Orientada a Objetos y una organización basada en el patrón Modelo–Vista–Controlador (MVC).
+2. ¿Qué problema podría surgir si toda la lógica estuviera en la clase Main?<br>
+R// El programa sería más difícil de comprender y replicar, tendría un alto acoplamiento y si se llega a romper será un infierno arreglarlo.
 
-## Descripción
+3. ¿Qué diferencia existe entre una clase del modelo y una clase controladora?<br>
+R// El controlador es el puente de comunicación entre la vista y el modelo, mientras que este último tiene los datos y reglas del programa.
 
-El sistema permite gestionar libros, usuarios y préstamos de una biblioteca escolar mediante una aplicación de consola. El objetivo principal es mostrar cómo una narrativa de problema puede transformarse progresivamente en clases, relaciones, paquetes, reglas de negocio y código Java funcional.
+4. ¿Qué diferencia existe entre asociación y dependencia?<br>
+R// La diferencia es el tiempo de relación entre clases, la dependencia es temporal mientras que la asociación es estable.
 
-## Funcionalidades principales
+5. ¿Por qué Prestamo debe ser una clase independiente?<br>
+R// Porque tiene atributos propios que no coinciden ni con Libro ni con Usuario por sí solos, atributos como la fecha de devolución.
 
-- Registro de libros con código, título, autor y estado de disponibilidad.
-- Registro de usuarios con identificador, nombre y correo electrónico.
-- Registro de préstamos de libros a usuarios.
-- Validación de disponibilidad antes de realizar un préstamo.
-- Registro de devoluciones.
-- Consulta de libros registrados, usuarios registrados y préstamos activos.
+6. ¿Qué regla impide prestar dos veces el mismo libro?<br>
+R// En el punto 5.3 del pdf está la regla del negocio 4 "Al registrar un préstamo, el libro queda no disponible."
 
-## Organización del proyecto
+7. ¿Qué clase debería encargarse de mostrar mensajes al usuario?<br>
+R// Clase BibliotecaVista.
 
-El proyecto está organizado siguiendo una estructura MVC:
+8. ¿Qué clase debería encargarse de modificar el estado de un libro?<br>
+R// Clase Libro.
 
-- `modelo`: contiene las clases del dominio, como `Libro`, `Usuario`, `Prestamo` y `Biblioteca`.
-- `controlador`: contiene la clase `BibliotecaController`, responsable de coordinar las operaciones del sistema.
-- `vista`: contiene la clase `BibliotecaVista`, encargada de la interacción por consola.
-- `app`: contiene la clase `Main`, punto de entrada de la aplicación.
+9. ¿Qué cambios serían necesarios para agregar persistencia en archivos?<br>
+R// Agregar lógica de manejo de archivos y serialización básica.
 
-## Objetivo pedagógico
+10. ¿Qué cambios serían necesarios para transformar este sistema en una aplicación con interfaz gráfica?<br>
+R// Hay que cambiar la clase BibliotecaVista por una interfaz gráfica y la clase BibliotecaController para que pueda recibir clics de botones, abrir popups, etc.
 
-Este proyecto busca apoyar el aprendizaje de conceptos fundamentales de POO, tales como clases, objetos, encapsulamiento, asociaciones, dependencias, colecciones, reglas de negocio, separación de responsabilidades y organización de código mediante paquetes.
+11. ¿Por qué la vista no debería acceder directamente a las listas internas de Biblioteca?<br>
+R// No debe acceder a las listas internas porque rompe el encapsulamiento, su unica responsabilidad debe ser interactuar con el usuario.
 
-## Ejecución
+12. ¿Qué ventajas tiene que Biblioteca retorne copias de sus listas?<br>
+R// Sirve para evitar que otras clases cambien elementos de la colección original, obligando a que el flujo de trabajo pase por las reglas de validación de la clase Biblioteca.
 
-Ejecutar la clase principal:
-
-```bash
-javac app/Main.java
-java app.Main
+---
+El repositorio original de este proyecto se puede encontrar en [samuelsepulveda/mini_caso](https://github.com/samuelsepulveda/mini_caso).
