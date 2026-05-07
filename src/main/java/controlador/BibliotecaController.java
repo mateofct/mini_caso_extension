@@ -6,6 +6,7 @@ import modelo.Biblioteca;
 import modelo.Libro;
 import modelo.Prestamo;
 import modelo.Usuario;
+import modelo.GestorDatos;
 
 public class BibliotecaController {
 
