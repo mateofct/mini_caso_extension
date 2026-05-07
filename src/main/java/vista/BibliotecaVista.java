@@ -6,6 +6,7 @@ import java.util.Scanner;
 import controlador.BibliotecaController;
 import modelo.Libro;
 import modelo.Prestamo;
+import modelo.Rol;
 import modelo.Usuario;
 
 public class BibliotecaVista {
@@ -91,7 +92,22 @@ public class BibliotecaVista {
         String nombre = leerTexto("Nombre: ");
         String correo = leerTexto("Correo: ");
 
-        controller.registrarUsuario(id, nombre, correo);
+        System.out.println("Seleccione rol:");
+        System.out.println("1. Estudiante");
+        System.out.println("2. Profesor");
+        int opcionRol = leerEntero("Opción: ");
+
+        Rol rolElegido;
+        if (opcionRol == 1) {
+            rolElegido = Rol.ESTUDIANTE;
+        } else if (opcionRol == 2) {
+            rolElegido = Rol.PROFESOR;
+        } else {
+            System.out.println("Rol no válido. Se asignara ESTUDIANTE por defecto.");
+            rolElegido = Rol.ESTUDIANTE;
+        }
+
+        controller.registrarUsuario(id, nombre, correo, rolElegido);
         System.out.println("Usuario registrado correctamente.");
     }
 
