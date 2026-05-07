@@ -7,8 +7,9 @@ public class Usuario implements Serializable {
     private String id;
     private String nombre;
     private String correo;
+    private Rol rol;
 
-    public Usuario(String id, String nombre, String correo) {
+    public Usuario(String id, String nombre, String correo, Rol rol) {
         if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("El identificador del usuario no puede estar vacio.");
         }
@@ -21,9 +22,13 @@ public class Usuario implements Serializable {
             throw new IllegalArgumentException("El correo del usuario no puede estar vacio.");
         }
 
+        if (rol == null) {
+            throw new IllegalArgumentException("El rol del usuario no puede estar vacio.");
+        }
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
+        this.rol = rol;
     }
 
     public String getId() {
@@ -38,8 +43,13 @@ public class Usuario implements Serializable {
         return correo;
     }
 
+    public Rol getRol() {
+        return rol;
+    }
+
     @Override
     public String toString() {
-        return "[" + id + "] " + nombre + " - " + correo;
+
+        return "[" + id + "] " + nombre + " - " + correo + " - " + rol;
     }
 }
